@@ -36,8 +36,9 @@ export const Body = () => {
   ) : (
     <>
       <div className="body">
-        <div className="search">
+        <div className="search p-4 flex justify-center">
           <input
+            class="rounded-l-lg placeholder:italic placeholder:text-slate-400 block bg-white w-100 border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             type="text"
             name="Search"
             placeholder="Search..."
@@ -47,6 +48,7 @@ export const Body = () => {
             }}
           />
           <button
+            className="p-2 bg-pink-300 text-sm font-semibold rounded-r-lg"
             onClick={() => {
               //filter restro card and update UI
               const filterRestro = fakeRestroDataList?.filter((restroFilter) =>
@@ -60,7 +62,7 @@ export const Body = () => {
             Search
           </button>
           <button
-            className="filterBtn"
+            className="px-4 py-2 ml-4 bg-gray-100"
             onClick={() => {
               //Filter logic here
               const filterLists = fakeRestroDataList.filter(
@@ -72,7 +74,7 @@ export const Body = () => {
             Top Rated Restro
           </button>
         </div>
-        <div className="restro-container">
+        <div className="flex flex-wrap">
           {filteredRestro?.map((items) => (
             <Link to={"/restromenu/" + items?.info?.id} key={items?.info?.id}>
               <RestaurantCard restoData={items?.info} />

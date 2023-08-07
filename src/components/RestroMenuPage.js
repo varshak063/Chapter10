@@ -18,27 +18,26 @@ export const RestroMenuPage = () => {
 
   return (
     <>
-      <div className="restromenu">
-        <h1>{name}</h1>
+      <div className="p-5">
+        <h1 className="font-bold p-2">{name}</h1>
         <img
-          className="restro-imgItem"
+          className="w-[200]"
           alt="logo"
-          style={{ width: "100px", height: "100px" }}
           src={CDN_URL + cloudinaryImageId}
         />
         <h5>{city}</h5>
         <h4>{cuisines.join(" , ")}</h4>
         <h2>Menu</h2>
-        <ul className="menuitems">
+        <ul className="flex flex-wrap">
           {itemCards?.map((item) => (
-            <li key={item?.card?.info?.id}>
-              <div>
-                <p>{item?.card?.info?.name}</p>
-                <p className="menuPrice">Rs-{item?.card?.info?.price / 100}</p>
+            <li className=" h-80 bg-pink-50 m-4 p-4 w-[200]" key={item?.card?.info?.id}>
+              <div className="p-2">
+                <p className="truncate">{item?.card?.info?.name}</p>
+                <p className="menuPrice">Rs-{item?.card?.info?.defaultPrice / 100}</p>
               </div>
 
               <div>
-                <img src={MENU_URL + item?.card?.info?.imageId} />
+                <img className="" src={MENU_URL + item?.card?.info?.imageId} />
               </div>
             </li>
           ))}

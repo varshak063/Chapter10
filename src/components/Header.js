@@ -1,48 +1,45 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { useInternetCheck } from "../utils/useInternetCheck";
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("Login");
-  // console.log("Header render");
-  // useEffect(() => {
-  //   console.log("useeffect called");
-  // });
+ 
   const isOnline = useInternetCheck();
   return (
     <>
-      <div className="header">
+      <div className="flex justify-between items-center bg-pink-100 mb shadow-lg">
         <div className="logo-container">
-          <img className="logo" src={LOGO_URL} alt="Logo" />
+          <img className="w-20" src={LOGO_URL} alt="Logo" />
         </div>
         <div className="nav-items">
-          <ul>
-            <li>
+          <ul className="flex align-middle justify-between font-bold">
+            <li className="m-2">
               Online Status:
               {isOnline === true ? (
-                <button className="online"></button>
+                <button className="bg-green-900"></button>
               ) : (
                 <button className="Offline"></button>
               )}
             </li>
             <Link to="/">
-              <li>Home</li>
+              <li className="m-2">Home</li>
             </Link>
             <Link to="/about">
-              <li>About Us</li>
+              <li className="m-2">About Us</li>
             </Link>
             <Link>
-              <li>Contact Us</li>
+              <li className="m-2">Contact Us</li>
             </Link>
             <Link to="/grocery">
-              <li>Grocery</li>
+              <li className="m-2">Grocery</li>
             </Link>
             <Link>
-              <li>Cart</li>
+              <li className="m-2">Cart</li>
             </Link>
             <button
-              className="btn-login"
+              className="m-2"
               onClick={() => {
                 isLoggedIn === "Login"
                   ? setIsLoggedIn("Logout")
